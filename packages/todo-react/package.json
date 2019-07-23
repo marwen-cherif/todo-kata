@@ -2,18 +2,20 @@
   "name": "todo-react",
   "version": "0.1.0",
   "private": true,
-  "peerDependencies": {
-    "react": "^16.x.x",
-    "react-dom": "^16.x.x",
-    "react-scripts": "3.x.x",
-    "enzyme": "^3.x.x",
-    "enzyme-adapter-react-16": "^1.x.x"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "peerDependencies": {
+    "react": "^16.x.x",
+    "react-dom": "^16.x.x",
+    "react-scripts": "3.x.x",
+    "enzyme": "^3.x.x",
+    "enzyme-adapter-react-16": "^1.x.x",
+    "babel-jest": "^24.x.x",
+    "prop-types": "^15.x.x"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,5 +33,6 @@
     ]
   },
   "jest": {
-    "globalSetup": "./setupTests.js" }
+    "setupTestFrameworkScriptFile": "./setupTests.js"
+  }
 }

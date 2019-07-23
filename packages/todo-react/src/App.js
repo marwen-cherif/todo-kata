@@ -1,4 +1,6 @@
 import React from 'react';
+
+import List from './components/List/List';
 import logo from './logo.svg';
 import './App.css';
 
@@ -14,9 +16,8 @@ function App() {
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+          rel="noopener noreferrer">
+          <List />
         </a>
       </header>
     </div>
