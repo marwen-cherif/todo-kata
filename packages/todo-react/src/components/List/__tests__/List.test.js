@@ -2,6 +2,9 @@ import React from 'react';
 import {mount} from 'enzyme';
 
 import List from '../List';
+import {ThemeProvider} from 'styled-components';
+import {reactTheme} from 'todo-common/theme';
+import {IntlProvider} from 'react-intl';
 
 const todos = [
   {
@@ -21,9 +24,15 @@ const todos = [
 
 describe('Todo.List', () => {
   it('should renders correctly', () => {
-    const tree = mount(<List todos={todos} />);
-    expect(tree.find('div[data-todo=""]').length).toBe(3);
+    const tree = mount(
+      <ThemeProvider theme={reactTheme}>
+        <IntlProvider locale="en">
+          <List todos={todos} />
+        </IntlProvider>
+      </ThemeProvider>
+    );
+    expect(tree.find('div[data-todo]').hostNodes().length).toBe(3);
     expect(tree.find('[data-mark-as]').length).toBe(3);
-    expect(tree.find('[data-add-todo]').length).toBe(1);
+    expect(tree.find('[data-add-todo]').hostNodes().length).toBe(1);
   });
 });

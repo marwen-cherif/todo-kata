@@ -8,6 +8,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "dependencies": {
+    "todo-common": "0.0.0"
+  },
   "peerDependencies": {
     "react": "^16.x.x",
     "react-dom": "^16.x.x",
@@ -31,8 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "jest": {
-    "setupTestFrameworkScriptFile": "./setupTests.js"
   }
 }

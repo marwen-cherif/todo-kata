@@ -1,13 +1,7 @@
-module.exports = {
-  roots: ['packages/'],
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': require.resolve('babel-jest'),
-    '^.+\\.svg$': require.resolve('jest-svg-transformer'),
-  },
-  verbose: true,
-  transformIgnorePatterns: ['node_modules/(?!(.*todo.*)/)'],
-  setupFilesAfterEnv: [require.resolve('./scripts/enzyme/enzyme.config')],
-  moduleNameMapper: {
-    '\\.(scss|sass|css)$': 'identity-obj-proxy',
-  },
-};
+const {argv} = require('yargs');
+const baseConfig = require('./scripts/jest/config.base');
+
+const {scope = 'all'} = argv;
+const config = require(`./scripts/jest`)[scope];
+
+module.exports = Object.assign({}, baseConfig, config);
