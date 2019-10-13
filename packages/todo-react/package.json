@@ -9,7 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "todo-common": "0.0.0"
+    "todo-common": "0.0.1"
   },
   "peerDependencies": {
     "react": "^16.x.x",
@@ -17,7 +17,6 @@
     "react-scripts": "3.x.x",
     "enzyme": "^3.x.x",
     "enzyme-adapter-react-16": "^1.x.x",
-    "babel-jest": "^24.x.x",
     "prop-types": "^15.x.x"
   },
   "eslintConfig": {

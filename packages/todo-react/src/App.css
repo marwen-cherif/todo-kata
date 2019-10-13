@@ -9,14 +9,15 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #fafafa;
+  min-height: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #000000;
+  width: 100%;
 }
 
 .App-link {
@@ -30,4 +31,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.MuiInput-underline:before {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.42);
 }

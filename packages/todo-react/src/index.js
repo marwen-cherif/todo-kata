@@ -1,20 +1,22 @@
 import React from 'react';
-import {IntlProvider} from 'react-intl';
 import ReactDOM from 'react-dom';
 import {ThemeProvider} from 'styled-components';
 
+import IntlProviderWrapper from './IntlProviderWrapper';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {reactTheme} from 'todo-common/theme';
+import {reactTheme, messages} from 'todo-common';
 
+const language = navigator.language.split(/[-_]/)[0]; // language without region code
+console.log(language);
 ReactDOM.render(
   <ThemeProvider theme={reactTheme}>
-    <IntlProvider locale="en">
+    <IntlProviderWrapper>
       <App />
-    </IntlProvider>
+    </IntlProviderWrapper>
   </ThemeProvider>,
-  document.getElementById('root')
+  document.getElementById('container')
 );
 
 // If you want your app to work offline and load faster, you can change

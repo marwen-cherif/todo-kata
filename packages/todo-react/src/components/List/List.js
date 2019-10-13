@@ -1,29 +1,47 @@
-import React, {Component} from 'react';
-import styled, {withTheme} from 'styled-components';
-
-import v4 from 'uuid';
-import Todo from './Todo';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
+import {withTheme} from 'styled-components';
+import v4 from 'uuid';
+import Grid from '@material-ui/core/Grid';
+import {Grow} from '@material-ui/core';
 
-const AddStyled = styled.span`
-  color: ${({theme}) => theme.colors.primary};
-`;
+import Todo from './Todo';
+const List = props => {
+  const {todos, handleMarkAs, removeTodo} = props;
+  const [todosMap, setTodosMap] = useState({});
 
-class List extends Component {
-  render() {
-    const {todos} = this.props;
-    return (
-      <div>
-        {todos.map(({title, status}, index) => (
-          <Todo key={v4()} title={title} status={status} index={index} />
-        ))}
-        <AddStyled {...this.props} data-add-todo="">
-          Add
-        </AddStyled>
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    setTodosMap(todos.reduce((acc, item) => ({...acc, [item.id]: true}), {}));
+  }, [todos]);
+
+  return (
+    <Grid item xs={12}>
+      {todos.map(({title, status, id}) => {
+        return (
+          <Grow key={id} in={todosMap[id]}>
+            <Grid>
+              <Todo
+                id={id}
+                title={title}
+                status={status}
+                handleMarkAs={isDone => {
+                  handleMarkAs(id, isDone ? 'DONE' : 'TO_DO');
+                }}
+                removeTodo={() => {
+                  setTimeout(() => removeTodo(id), 300);
+                  setTodosMap({
+                    ...todosMap,
+                    [id]: false,
+                  });
+                }}
+              />
+            </Grid>
+          </Grow>
+        );
+      })}
+    </Grid>
+  );
+};
 
 List.propTypes = {
   todos: PropTypes.array,

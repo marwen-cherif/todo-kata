@@ -1,33 +1,23 @@
 import React from 'react';
 import {withTheme} from 'styled-components';
-import List from './components/List/List';
-import logo from './logo.svg';
+import Grid from '@material-ui/core/Grid';
+
 import './App.css';
+import {TodoComponent} from './components/Todo';
 
 function App(props) {
   console.log(props);
   return (
-    <div className="App">
-      <header className="App-header">
-        <List
-          todos={[
-            {
-              title: 'Need to complete the kata using a simple react app.',
-              Status: 'TO_DO',
-            },
-            {
-              title: 'Need to complete the kata using redux.',
-              Status: 'TO_DO',
-            },
-            {
-              title:
-                'Need to complete the kata using redux-saga, node server, mysql for persistance.',
-              Status: 'TO_DO',
-            },
-          ]}
-        />
-      </header>
-    </div>
+    <Grid container spacing={3} className="App" justify="space-around">
+      <Grid item xs={12}>
+        <header className="App-header">
+          <h1>Todo Kata</h1>
+        </header>
+      </Grid>
+      <Grid item xs={6}>
+        <TodoComponent />
+      </Grid>
+    </Grid>
   );
 }
 
