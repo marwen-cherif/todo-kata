@@ -1,7 +1,7 @@
 {
   "name": "todo-kata",
   "private": true,
-  "version": "independent",
+  "version": "0.0.0",
   "description": "Todo kata to train my skills",
   "repository": "git@github.com:chrifmarwen/todo-kata.git",
   "author": "Marwen CHERIF <marwen.cherif@gmail.com>",
