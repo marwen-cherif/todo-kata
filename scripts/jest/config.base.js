@@ -4,7 +4,10 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': require.resolve('babel-jest'),
   },
   transformIgnorePatterns: ['node_modules/(?!(.*savgroup-front.*)/)'],
-  setupFilesAfterEnv: [require.resolve('../enzyme/enzyme.config')],
+  setupFilesAfterEnv: [
+    require.resolve('../enzyme/enzyme.config'),
+    require.resolve('./setupTests'),
+  ],
   moduleNameMapper: {
     '\\.(scss|sass|css)$': 'identity-obj-proxy',
     '\\.svg': '<rootDir>/__mocks__/fileMock.js',

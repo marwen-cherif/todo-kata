@@ -3,7 +3,7 @@ import {mount} from 'enzyme';
 
 import List from '../List';
 import {ThemeProvider} from 'styled-components';
-import {reactTheme} from 'todo-common/theme';
+import {reactTheme as theme} from 'todo-common';
 import {IntlProvider} from 'react-intl';
 
 const todos = [
@@ -25,14 +25,12 @@ const todos = [
 describe('Todo.List', () => {
   it('should renders correctly', () => {
     const tree = mount(
-      <ThemeProvider theme={reactTheme}>
+      <ThemeProvider theme={theme}>
         <IntlProvider locale="en">
           <List todos={todos} />
         </IntlProvider>
       </ThemeProvider>
     );
-    expect(tree.find('div[data-todo]').hostNodes().length).toBe(3);
-    expect(tree.find('[data-mark-as]').length).toBe(3);
-    expect(tree.find('[data-add-todo]').hostNodes().length).toBe(1);
+    expect(tree.find('div[data-todo]').length).toBe(3);
   });
 });

@@ -6,10 +6,8 @@ import IntlProviderWrapper from './IntlProviderWrapper';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {reactTheme, messages} from 'todo-common';
+import {reactTheme} from 'todo-common';
 
-const language = navigator.language.split(/[-_]/)[0]; // language without region code
-console.log(language);
 ReactDOM.render(
   <ThemeProvider theme={reactTheme}>
     <IntlProviderWrapper>

@@ -41,7 +41,10 @@ export const TodoComponent = () => {
         }
         removeTodo={id => setTodos(todos.filter(todo => id !== todo.id))}
       />
-      <AddNewTodo onAddNewTodo={newTodo => setTodos([...todos, newTodo])} />
+      <AddNewTodo
+        data-add-todo
+        onAddNewTodo={newTodo => setTodos([...todos, newTodo])}
+      />
     </Grid>
   );
 };

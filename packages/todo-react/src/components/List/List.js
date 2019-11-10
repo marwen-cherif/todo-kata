@@ -18,7 +18,7 @@ const List = props => {
     <Grid item xs={12}>
       {todos.map(({title, status, id}) => {
         return (
-          <Grow key={id} in={todosMap[id]}>
+          <Grow key={v4()} in={todosMap[id]}>
             <Grid>
               <Todo
                 id={id}
